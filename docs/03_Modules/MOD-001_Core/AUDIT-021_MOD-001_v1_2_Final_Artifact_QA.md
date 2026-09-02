@@ -22,7 +22,7 @@ This checkpoint does not publish or approve the remaining architecture and ADR c
 
 | Artifact | Bytes | SHA-256 | Git blob |
 |---|---:|---|---|
-| `MOD-001_Core_Architecture_Audited_Source_v1_2.md` | 40,464 | `99c4901d8383a08a67d51a8176868a2e543f158a5fb43b6cdabfc08d1b9a5d6f` | `e3d58c5808d54d4e97b3144a33f7e8feb7f0d287` |
+| `MOD-001_Core_Architecture_Audited_Source_v1_2.md` | 39,651 | `472ac07b8a15b366ef539f6b728c7cdf319e1f08dff51d55ffe9e9f02f2d1614` | `e3d58c5808d54d4e97b3144a33f7e8feb7f0d287` |
 | `MOD-001_Core_RU_v1_2_Architecture_Audited_Complete.docx` | 55,931 | `ec2b144c2308377e643d39ac97a14e190557146647fc3e942f52ac5b4c12eeda` | `561d1df682bb57b7eaa21addbf94e6693a7a3992` |
 | `MOD-001_Core_DE_v1_2_Architecture_Audited_Complete.docx` | 54,602 | `15edef8b8f093ee43d36a47c1cb1e9175cbddc7e2e7b923287d7c28248f511a4` | `4f562105f7c3ecd81269e2ea424a2fee55e16cc9` |
 
