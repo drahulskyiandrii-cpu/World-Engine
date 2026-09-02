@@ -3,7 +3,7 @@
 **Project:** World Engine  
 **Module ID:** MOD-001  
 **Layer:** Coordination / Application  
-**Status:** Architecture-audited source candidate for RU/DE DOCX regeneration  
+**Status:** Final architecture-audited source for RU/DE DOCX regeneration; AUDIT-018 C1–C6 incorporated
 **Date:** 2026-09-02  
 **Baseline:** ADR-001 amendment; ADR-002 clarification; ADR-003 amendment; ADR-005 v1.2 amendment; ADR-007 amendment; ADR-008; ARCH-001–005 v1.3 audited model; ARCH-006 v1.2; ARCH-007 v4; ARCH-008/009/010/011/012 audited sources
 
@@ -94,13 +94,13 @@ Core shall expose a normalized application/game ingress contract and reject malf
 Core shall be able to invoke explicitly injected narrow synchronous use-case ports when the workflow requires an immediate result.
 
 ### FR-CORE-004 — Dialogue orchestration
-Core shall support the conversation workflow through a Dialogue Command/Use-Case Port without importing concrete Dialogue Engine implementation internals.
+Core shall support the conversation workflow through a Core/Application-owned Dialogue Command/Use-Case Port without importing concrete Dialogue implementation internals. Static dependency direction is `Core/Application -> Dialogue Use-Case Port <- Dialogue implementation`.
 
 ### FR-CORE-005 — Save/Load orchestration
-Core shall support explicit manual/application Save/Load workflows through Save Manager Command/Use-Case Contract without accessing Save Repository/Database directly.
+Core shall support explicit manual/application Save/Load workflows through Save Manager Command/Use-Case Contract without accessing Save Repository/Database directly. Core issues only the high-level command and consumes the typed outcome; Save Manager owns artifact validation, restore orchestration, participant staging and compatibility decisions.
 
 ### FR-CORE-006 — Game output
-Core shall return approved game-facing results/actions/capability requests through Game Output/Capability Port without depending on concrete Game Adapter implementation.
+Core shall return approved game-facing results/actions/capability requests through a Core/Application-owned Game Output/Capability Port without depending on concrete Game Adapter implementation. Static dependency direction is `Core/Application -> Game Output/Capability Port <- Game Adapter implementation`.
 
 ### FR-CORE-007 — Event publication
 Core shall publish semantic facts/events through Event Engine when decoupled reaction semantics are appropriate.
@@ -121,7 +121,7 @@ Core shall propagate correlation ID, deadline/cancellation context and safe diag
 Core shall normalize downstream contract failures into stable coordination/application error categories without leaking implementation-specific exceptions across public boundaries.
 
 ### FR-CORE-013 — Core readiness evidence
-Core shall publish Core-scoped readiness/health evidence without determining application-level Ready/Degraded outcome.
+Core shall publish Core-scoped readiness/health evidence without determining application-level Ready/Degraded outcome. Application Host aggregates application readiness. AI evidence is opt-in for Core and exists only for a documented Core-owned workflow; AI unavailability alone does not change Core lifecycle/readiness.
 
 ### FR-CORE-014 — Typed configuration consumption
 Core shall receive only a typed Core-specific configuration view prepared by Configuration subsystem and distributed by Application Host / Composition Root.
@@ -133,10 +133,16 @@ Core shall not parse raw YAML, own the configuration schema, resolve secrets or 
 Core shall not use generic domain repositories, arbitrary CRUD, SQLite or physical Database APIs.
 
 ### FR-CORE-017 — Conditional Core-owned persistence/status port
-A narrow Core-owned persistence/status port is permitted only if a concrete Core responsibility cannot be satisfied by Host/readiness evidence or another existing owner contract. Default v1.0 implementation should have no such dependency unless justified.
+A narrow Core-owned persistence/status port is absent by default. It may be proposed only when all six gates pass: (1) a concrete Core-owned responsibility cannot be satisfied by Host/readiness evidence or an existing owner contract; (2) the port is narrow, explicit and not CRUD; (3) ownership, lifecycle and migration semantics are documented; (4) ARCH-005 is updated and the graph remains acyclic; (5) MOD/API traceability is updated; and (6) an ADR is approved when the boundary changes.
 
 ### FR-CORE-018 — No generic AI consumer role
-Core shall not be a generic AI consumer in v1.0. It may consume scoped AI readiness/capability evidence only.
+Core shall not be a generic AI consumer in v1.0. It may consume scoped AI readiness/capability evidence only when an explicit Core-owned coordination workflow documents that need. Otherwise no Core AI-readiness dependency exists.
+
+### FR-CORE-025 — Restore activation ownership
+Core shall never invoke SaveParticipant `StageRestore`, `CommitActivation`, `AbortActivation`, `RollbackActivation` or equivalent participant-level methods. Save Manager and the Host/activation gate coordinate all-or-nothing restore activation; each state owner applies its staged state.
+
+### FR-CORE-026 — Event callback inversion
+When Core consumes an event callback, Core may implement only a narrow Core-owned handler/subscriber contract. Event delivery is a runtime relation wired by Composition Root, not a static Event Engine -> Core implementation dependency and not generic dispatcher/RPC access.
 
 ### FR-CORE-019 — No concrete integration dependency
 Core shall not import concrete Game Adapter, Plugin Detector, AI provider, database driver or game SDK types.
@@ -219,6 +225,25 @@ Core shall minimize coordination overhead on latency-sensitive synchronous workf
 | Save Manager Command/Use-Case Contract | static dependency | explicit Save/Load/shutdown-save workflow | Save Manager owns Save semantics |
 | Game Output/Capability Port | static dependency on port | game-facing output/capability use | concrete Game Adapter implements port |
 
+Port ownership/inversion is normative:
+
+```text
+Core/Application -> Dialogue Use-Case Port <- Dialogue implementation
+Core/Application -> Game Output/Capability Port <- Game Adapter implementation
+```
+
+Requiredness is mode-aware, not universally mandatory:
+
+| Contract/evidence | Requiredness |
+|---|---|
+| Event Engine public contract | Core-baseline required |
+| Scheduler control contract | Core-baseline required |
+| Dialogue Use-Case Port | normal-game-mode required for conversation-capable gameplay |
+| Save Manager Command Contract | Core-baseline required unless a future explicitly approved no-save product mode exists |
+| Game Output/Capability Port | normal-game-mode required |
+| AI readiness/capability evidence | optional/opt-in; only for a documented Core-owned workflow |
+| future Core persistence/status port | absent by default; conditional architecture exception only |
+
 ### 5.2 Inbound contract
 
 `Game Adapter implementation -> Game Ingress Port -> Core/Application`
@@ -227,7 +252,7 @@ The concrete adapter depends on the ingress contract; Core does not import the a
 
 ### 5.3 Conditional dependencies
 
-A future narrow Core-owned persistence/status port is allowed only by documented need and must not become generic CRUD/Repository access.
+A future narrow Core-owned persistence/status port is allowed only after all six FR-CORE-017 gates pass and must not become generic CRUD/Repository access.
 
 Additional synchronous application use-case ports require architecture/module traceability and must remain narrow.
 
@@ -252,6 +277,8 @@ Additional synchronous application use-case ports require architecture/module tr
 - explicit application command/query requests;
 - typed Core configuration view;
 - Core-required dependency readiness evidence;
+- mode/profile policy that classifies required, normal-game-mode, mode-dependent and optional evidence;
+- AI evidence only when an explicit Core-owned workflow opts in;
 - Scheduler/Event Engine callbacks only through defined contracts;
 - cancellation/deadline/correlation context.
 
@@ -295,19 +322,19 @@ This contract is called by Host/Composition Root. It does not allow arbitrary ru
 
 ### 7.3 Dialogue Command/Use-Case Port
 
-Used for synchronous conversation/knowledge-related workflows requiring an immediate result.
+Owned by Core/Application and implemented by Dialogue. Used for synchronous conversation/knowledge-related workflows requiring an immediate result. Replacing the Dialogue implementation shall not change Core imports to a concrete implementation type.
 
 ### 7.4 Save Manager Command/Use-Case Contract
 
-Used for explicit manual/application Save/Load and approved shutdown-save coordination.
+Used for explicit manual/application Save/Load and approved shutdown-save coordination. Core sends the high-level command and receives a typed result. Save Manager owns artifact validation, restore orchestration, SaveParticipant staging, cross-participant compatibility and participant-level activation/rollback coordination. Core never calls participant stage/commit/rollback methods.
 
 ### 7.5 Game Output/Capability Port
 
-Used for approved outbound game-facing operations/capability queries. Game Adapter implementation satisfies this port.
+Owned by Core/Application and used for approved outbound game-facing operations/capability queries. Game Adapter implementation satisfies this port; replacing that implementation shall not change Core concrete imports.
 
 ### 7.6 Event Engine Contract
 
-Used for semantic event publication/subscription where event semantics are appropriate.
+Used for semantic event publication/subscription where event semantics are appropriate. For inbound callbacks Core may implement a narrow Core-owned handler contract. Composition Root performs registration. Runtime delivery does not create a static Event Engine -> Core implementation dependency and the contract is never a generic dispatcher/RPC surface.
 
 ### 7.7 Scheduler Control Contract
 
@@ -376,6 +403,8 @@ Rules:
 - events do not replace synchronous command/query results;
 - producer/subscriber relation is not a direct static dependency by itself;
 - events are published only after the represented fact actually occurred.
+- inbound Core subscribers implement narrow Core-owned handler contracts and are registered by Composition Root;
+- Event Engine runtime delivery never implies a static dependency on the Core implementation.
 
 Autosave remains Scheduler-owned timing publication, not Core event publication.
 
@@ -497,6 +526,16 @@ Rules:
 
 Core may participate in application recovery gating through explicit typed results/evidence without becoming the global recovery owner.
 
+For Save restore specifically, ownership is fixed:
+
+```text
+Core -> high-level Load command -> Save Manager
+Save Manager + Host/Activation Gate + SaveParticipants -> all-or-nothing restore activation
+typed Load outcome -> Core -> resume workflow or return controlled failure
+```
+
+Save Manager validates the artifact, orchestrates restore, stages all participants and makes compatibility decisions. State owners apply their staged state. Host/activation gate coordinates activation. Core never invokes SaveParticipant stage/commit/abort/rollback and never owns restore rollback.
+
 ---
 
 ## 15. Configuration
@@ -529,6 +568,10 @@ Keep four scopes distinct:
 4. application-level startup/runtime outcome.
 
 Core readiness means Core can satisfy its own public coordination contract under the current injected contract state.
+
+Requiredness is evaluated against the active mode/profile: Core-baseline, normal-game-mode required, mode-dependent or optional. Missing mode-optional evidence cannot invalidate Core readiness unless the active Core mode explicitly requires it.
+
+AI readiness/capability evidence is absent by default for Core. Application Host aggregates application-level AI readiness, while Dialogue or another approved consumer owns AI use-case behavior and fallback. AI unavailability alone never changes Core lifecycle/readiness.
 
 Application Host aggregates evidence and decides:
 
@@ -695,6 +738,14 @@ Must prove:
 11. no Service Locator/global module registry exists.
 12. static dependency graph remains acyclic.
 13. application/Core readiness scopes remain distinct.
+14. concrete Dialogue implementation can be replaced without Core concrete import changes.
+15. concrete Game Adapter implementation can be replaced without Core concrete import changes.
+16. missing mode-optional capability does not invalidate Core readiness unless the active Core mode explicitly requires it.
+17. Core invokes only the high-level Save Manager Load command and receives a typed result.
+18. Core never invokes SaveParticipant stage/commit/abort/rollback methods directly.
+19. Core runs without an AI readiness dependency when no Core-owned AI-aware workflow is configured.
+20. Event Engine runtime callback delivery creates no static Event Engine -> Core implementation dependency.
+21. a proposed future Core persistence/status port is rejected unless all six architecture gates pass.
 
 ### 23.3 Integration tests
 
@@ -725,6 +776,12 @@ MOD-001 v1.2 is accepted when:
 13. architecture-conformance tests pass;
 14. RU and DE final DOCX versions have semantic parity;
 15. final dependency-cycle validation remains PASS.
+16. outbound Dialogue and Game Output port inversion is explicit and implementation replacement is verified;
+17. mode-aware requiredness is tested for Core-baseline, normal-game-mode, mode-dependent and optional cases;
+18. restore activation ownership remains with Save Manager, state owners and Host/activation gate;
+19. AI readiness evidence remains opt-in and does not automatically change Core lifecycle;
+20. event callbacks use narrow Core-owned handler contracts and composition wiring;
+21. any future Core persistence/status port satisfies all six governance gates.
 
 ---
 
@@ -801,6 +858,8 @@ Final MOD-001 RU/DE DOCX should include or reference:
 4. conversation use-case sequence reference to ARCH-007 SD-001;
 5. Save/Load use-case sequence reference to ARCH-007 SD-004/SD-005;
 6. Host vs Core lifecycle/readiness scope diagram.
+7. explicit Dialogue and Game Output port inversion diagram.
+8. Save restore activation ownership diagram showing Core only at the high-level command/result boundary.
 
 Arrow semantics must distinguish static dependency, runtime call, event relation, data/evidence flow and lifecycle wiring.
 
@@ -843,6 +902,7 @@ Supersedes the v1.1 implementation interpretation in the following areas:
 - retains no-generic-AI-consumer rule;
 - retains no-Service-Locator and no-generic-persistence rules;
 - aligns Save/Restore with atomic logical activation architecture.
+- incorporates the AUDIT-018 C1–C6 final correction freeze: outbound port inversion, mode-aware requiredness, restore activation ownership, opt-in AI evidence, event callback inversion and the six-gate future persistence/status rule.
 
 ### Gate
 
