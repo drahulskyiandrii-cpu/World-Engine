@@ -59,14 +59,16 @@ The current ARCH-006 vector source remains available at [ARCH-006 audited SVG](0
 | ADR-006 | [RU v3.0 complete](02_Architecture_Decision_Records/ADR-006_Plugin_Detection/ADR-006_Plugin_Detection_RU_v3_0_Full_Content_Audited_Complete.docx) | [DE v3.0 complete](02_Architecture_Decision_Records/ADR-006_Plugin_Detection/ADR-006_Plugin_Detection_DE_v3_0_Full_Content_Audited_Complete.docx) | `99_Archive/04_Full_Documentation_Rebuild_2026-09-04/02_Architecture_Decision_Records/ADR-006_Plugin_Detection/` | Current — full content, audited |
 | ADR-007 | [RU v3.0 complete](02_Architecture_Decision_Records/ADR-007_Multi_Game_Support/ADR-007_Multi_Game_Support_RU_v3_0_Full_Content_Audited_Complete.docx) | [DE v3.0 complete](02_Architecture_Decision_Records/ADR-007_Multi_Game_Support/ADR-007_Multi_Game_Support_DE_v3_0_Full_Content_Audited_Complete.docx) | `99_Archive/04_Full_Documentation_Rebuild_2026-09-04/02_Architecture_Decision_Records/ADR-007_Multi_Game_Support/` | Current — full content, audited |
 | ADR-008 | [RU v2.0 complete](02_Architecture_Decision_Records/ADR-008_Dependency_Semantics_Contract_Ownership/ADR-008_Dependency_Semantics_Contract_Ownership_RU_v2_0_Full_Content_Audited_Complete.docx) | [DE v2.0 complete](02_Architecture_Decision_Records/ADR-008_Dependency_Semantics_Contract_Ownership/ADR-008_Dependency_Semantics_Contract_Ownership_DE_v2_0_Full_Content_Audited_Complete.docx) | `99_Archive/04_Full_Documentation_Rebuild_2026-09-04/02_Architecture_Decision_Records/ADR-008_Dependency_Semantics_Contract_Ownership/` | Current — full content, audited |
+| ADR-009 | [RU v1.0 accepted](02_Architecture_Decision_Records/ADR-009_MOD002_Skyrim_Integration/ADR-009_MOD002_Skyrim_Integration_RU_v1_0_Accepted.docx) | [DE v1.0 accepted](02_Architecture_Decision_Records/ADR-009_MOD002_Skyrim_Integration/ADR-009_MOD002_Skyrim_Integration_DE_v1_0_Accepted.docx) | — | Accepted — MOD-002 SE/AE implementation boundary |
 
 ## Module documents
 
 | ID | Canonical RU | Canonical DE | Superseded snapshot | Status |
 |---|---|---|---|---|
 | MOD-001 | [RU v2.0 complete](03_Modules/MOD-001_Core/MOD-001_Core_RU_v2_0_Full_Content_Audited_Complete.docx) | [DE v2.0 complete](03_Modules/MOD-001_Core/MOD-001_Core_DE_v2_0_Full_Content_Audited_Complete.docx) | `99_Archive/04_Full_Documentation_Rebuild_2026-09-04/03_Modules/MOD-001_Core/` | Current — full content, audited |
+| MOD-002 | [RU v1.0 implementation baseline](03_Modules/MOD-002_Game_Adapter/MOD-002_Game_Adapter_RU_v1_0_Implementation_Baseline.docx) | [DE v1.0 implementation baseline](03_Modules/MOD-002_Game_Adapter/MOD-002_Game_Adapter_DE_v1_0_Implementation_Baseline.docx) | — | In development — Prototype; build and in-game validation pending |
 
-MOD-002 and later modules remain unauthorized until an explicit implementation decision is recorded.
+MOD-002 implementation was explicitly authorized by the project owner on 2026-09-04 for Skyrim SE/AE only and is governed by ADR-009. Skyrim VR remains excluded. MOD-003 and later modules remain unauthorized until an explicit implementation decision is recorded.
 
 ## Audit record and QA register
 
@@ -80,9 +82,10 @@ MOD-002 and later modules remain unauthorized until an explicit implementation d
 |---|---:|---:|
 | Project management | 16 | 120 |
 | Architecture | 24 | 1068 |
-| ADR | 16 | 740 |
+| ADR | 18 | 748 |
 | MOD-001 | 2 | 255 |
+| MOD-002 | 2 | 19 |
 | Consolidated audit record | 1 | 170 |
-| **Total** | **59** | **2353** |
+| **Total** | **63** | **2380** |
 
-All 59 structural checks and all 59 post-export page checks passed. No unsupported content objects, missing source mappings, high-severity accessibility findings or medium-severity accessibility findings remain.
+The previously published 59-document audited baseline remains unchanged. The four new ADR-009 and MOD-002 Word artifacts add 27 rendered pages; all were visually inspected, and their accessibility checks report no high-, medium- or low-severity findings. The eight-slide MOD-002 architecture overview also passed package-integrity and layout validation without findings or warnings.

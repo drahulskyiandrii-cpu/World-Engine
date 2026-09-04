@@ -1,0 +1,6 @@
+build/
+.mod002-work/
+.codex-finalizer/
+*.user
+*.suo
+

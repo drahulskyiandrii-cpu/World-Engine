@@ -1,0 +1,56 @@
+{
+  "$schema": "./skyrim-profile.schema.json",
+  "profile_version": "1.0.0",
+  "game_id": "skyrim-se-ae",
+  "adapter_id": "world-engine.mod-002.skyrim",
+  "adapter_version": "0.1.0",
+  "support_status": "prototype",
+  "runtime_targets": [
+    {
+      "distribution": "steam",
+      "edition": "anniversary",
+      "runtime_version": "1.7.104",
+      "skse_version": "2.3.1",
+      "validation": "pending_game_test"
+    },
+    {
+      "distribution": "steam",
+      "edition": "special_legacy",
+      "runtime_version": "1.5.97",
+      "skse_version": "2.0.20",
+      "validation": "pending_game_test"
+    },
+    {
+      "distribution": "gog",
+      "edition": "anniversary",
+      "runtime_version": "1.6.1179",
+      "skse_version": "2.2.6",
+      "validation": "pending_game_test"
+    }
+  ],
+  "excluded_targets": [
+    "skyrim-vr",
+    "windows-store",
+    "game-pass",
+    "epic-games-store",
+    "classic-skyrim"
+  ],
+  "required_capabilities": [
+    "runtime.identity",
+    "session.lifecycle",
+    "dialogue.context.observe",
+    "ui.subtitle.show",
+    "safe_point.evidence"
+  ],
+  "optional_capabilities": [
+    "world.time.observe",
+    "player.location.observe",
+    "actor.basic.observe",
+    "voice.playback.trigger"
+  ],
+  "known_limitations": [
+    "No runtime target is marked supported until the SKSE plugin is built and tested in the corresponding game runtime.",
+    "Plugin and mod discovery remains owned by Plugin Detection; this profile consumes validated evidence only.",
+    "Skyrim VR is outside the first implementation scope."
+  ]
+}
