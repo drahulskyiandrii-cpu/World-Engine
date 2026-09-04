@@ -2,7 +2,7 @@
 
 **Repository scope:** full-documentation rebuild based on remote `main` commit `ffcb41a5112424ea41ec1ed8b3243dc385b5b5a5`
 
-**Index date:** 2026-09-04
+**Index date:** 2026-09-05
 
 **Status:** final full-content audited set
 
@@ -67,10 +67,13 @@ The current ARCH-006 vector source remains available at [ARCH-006 audited SVG](0
 |---|---|---|---|---|
 | MOD-001 | [RU v2.0 complete](03_Modules/MOD-001_Core/MOD-001_Core_RU_v2_0_Full_Content_Audited_Complete.docx) | [DE v2.0 complete](03_Modules/MOD-001_Core/MOD-001_Core_DE_v2_0_Full_Content_Audited_Complete.docx) | `99_Archive/04_Full_Documentation_Rebuild_2026-09-04/03_Modules/MOD-001_Core/` | Current — full content, audited |
 | MOD-002 | [RU v2.0 full implementation specification](03_Modules/MOD-002_Game_Adapter/MOD-002_Game_Adapter_RU_v2_0_Full_Content_Implementation_Specification.docx) | [DE v2.0 full implementation specification](03_Modules/MOD-002_Game_Adapter/MOD-002_Game_Adapter_DE_v2_0_Full_Content_Implementation_Specification.docx) | `99_Archive/05_MOD002_M2_1_Baseline_2026-09-05/` | Current — full content; Prototype, build and in-game validation pending |
+| MOD-003 | [RU v1.0 full design and implementation specification](03_Modules/MOD-003_Memory_Engine/MOD-003_Memory_Engine_RU_v1_0_Full_Content_Implementation_Specification.docx) | [DE v1.0 full design and implementation specification](03_Modules/MOD-003_Memory_Engine/MOD-003_Memory_Engine_DE_v1_0_Full_Content_Implementation_Specification.docx) | — | Current — complete design baseline; implementation not started |
 
-MOD-002 implementation was explicitly authorized by the project owner on 2026-09-04 for Skyrim SE/AE only and is governed by ADR-009. Skyrim VR remains excluded. MOD-003 and later modules remain unauthorized until an explicit implementation decision is recorded.
+MOD-002 implementation was explicitly authorized by the project owner on 2026-09-04 for Skyrim SE/AE only and is governed by ADR-009. Skyrim VR remains excluded. Full pre-implementation documentation for MOD-003 Memory Engine was explicitly requested on 2026-09-05. This records a complete design baseline, not authorization or completion of code. MOD-003 implementation and MOD-004 or later module work require an explicit implementation decision.
 
 The former short M2.1 Word baseline and architecture presentation are retained only in the MOD-002 historical archive. The active module record is the standalone v2.0 Word specification; it includes the normative baseline, detailed implementation contracts, test and deployment procedures, and the current source snapshot.
+
+The MOD-003 v1.0 pair is a standalone pre-implementation specification with 60 numbered sections and appendices A–L. It defines Memory Engine ownership, schemas, persistence and save boundaries, AI/Dialogue integration, tests, gates and operations without presenting planned code as implemented.
 
 ## Audit record and QA register
 
@@ -87,7 +90,10 @@ The former short M2.1 Word baseline and architecture presentation are retained o
 | ADR | 18 | 748 |
 | MOD-001 | 2 | 255 |
 | MOD-002 | 2 | 115 |
+| MOD-003 | 2 | 78 |
 | Consolidated audit record | 1 | 170 |
-| **Total** | **63** | **2476** |
+| **Total** | **65** | **2554** |
 
 The previously published 59-document audited baseline remains unchanged. The two ADR-009 decision records remain current. The MOD-002 v2.0 pair renders to 115 pages (58 RU and 57 DE), replaces the 19-page v1.0 baseline pair in the active set, and passed full-page visual inspection plus accessibility audit with no high-, medium- or low-severity findings. The superseded presentation remains recoverable in the historical archive but is not part of the active module documentation.
+
+The MOD-003 v1.0 pair renders to 78 pages (39 RU and 39 DE) and passed full-page visual inspection plus accessibility audit with no high-, medium- or low-severity findings. Its complete documentation status is intentionally distinct from implementation status, which remains Not Started.
