@@ -70,6 +70,8 @@ The current ARCH-006 vector source remains available at [ARCH-006 audited SVG](0
 
 MOD-002 implementation was explicitly authorized by the project owner on 2026-09-04 for Skyrim SE/AE only and is governed by ADR-009. Skyrim VR remains excluded. MOD-003 and later modules remain unauthorized until an explicit implementation decision is recorded.
 
+The editable [MOD-002 architecture overview v1.1](03_Modules/MOD-002_Game_Adapter/MOD-002_Game_Adapter_SE_AE_Architecture_Overview_v1_1_Complete.pptx) summarizes the approved boundary, lifecycle, capabilities, data flows and delivery gates.
+
 ## Audit record and QA register
 
 - [Full architecture audit record](01_Architecture/AUDIT-000_World_Engine_Architecture_Audit_Record_v1_0_Complete.docx) — 170 pages containing the full audit evidence through AUDIT-029.

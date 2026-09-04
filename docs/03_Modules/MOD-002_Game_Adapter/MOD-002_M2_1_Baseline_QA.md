@@ -46,4 +46,4 @@ The profile must remain `prototype` and every runtime target must remain `pendin
 
 ## Next increment
 
-M2.2 should implement the local named-pipe transport, versioned frame codec, Skyrim runtime bridge handlers and adapter-host handshake. It should add deterministic unit tests for framing, payload bounds, disconnects, stale sessions and backpressure before the first in-game smoke test.
+M2.2 closes the portable build gate in Debug and Release with warnings treated as errors and all dependency-free tests passing. M2.3 then implements the local named-pipe transport, versioned frame codec and adapter-host handshake, with deterministic tests for framing, payload bounds, disconnects, stale sessions and backpressure before the first in-game smoke test.
