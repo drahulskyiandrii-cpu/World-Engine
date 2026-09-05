@@ -1,5 +1,6 @@
 build/
 .mod002-work/
+.foundation-work/
 .codex-finalizer/
 *.user
 *.suo
