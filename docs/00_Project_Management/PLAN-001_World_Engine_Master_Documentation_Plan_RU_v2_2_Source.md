@@ -1,6 +1,6 @@
 # PLAN-001 — World Engine Master Documentation Plan
 
-Версия 2.1 · Русский · 2026-09-05 · Текущий управляющий документ
+Версия 2.2 · Русский · 2026-09-05 · Текущий управляющий документ
 
 ## 1. Назначение документа
 
@@ -18,14 +18,14 @@ PLAN-001 — контрольный артефакт, а не один из 116 
 
 ## 3. Исправление прежнего Master Plan
 
-Прежняя таблица указывала итог `28 / 92`, хотя перечисляла 114 позиций. После появления ADR-008 и ADR-009 фактический объём программы составляет 116 поставляемых артефактов. После публикации STD-001 и STD-002 подтверждены 35 из 116.
+Прежняя таблица указывала итог `28 / 92`, хотя перечисляла 114 позиций. После появления ADR-008 и ADR-009 фактический объём программы составляет 116 поставляемых артефактов. После публикации DOC-009, STD-001, STD-002 и STD-004 подтверждены 37 из 116.
 
 Также исправлены два смысловых искажения. `Future Ideas` отсутствует в активном каноническом наборе и поэтому не может иметь статус Complete. Наличие короткого корневого `README.md` не означает завершение полноценного стандарта README из этапа 11. Чекбокс документа никогда не означает, что соответствующий программный модуль уже реализован.
 
 | Показатель | Прежнее значение | Проверенное значение | Основание |
 |---|---:|---:|---|
 | Всего поставляемых артефактов | 92 | 116 | Пересчёт всех строк этапов 1–14 с ADR-008 и ADR-009 |
-| Завершено | 28 | 35 | Активный канонический индекс и проверенные файлы |
+| Завершено | 28 | 37 | Активный канонический индекс и проверенные файлы |
 | Architecture Decision Records | 7 / 7 | 9 / 9 | ADR-008 и ADR-009 приняты и опубликованы |
 | Спецификации модулей | 1 / 15 | 4 / 15 | Template, MOD-001, MOD-002 и MOD-003 |
 | Future Ideas | Complete | Planned | Активного канонического документа нет |
@@ -37,7 +37,7 @@ PLAN-001 — контрольный артефакт, а не один из 116 
 
 | Раздел | Завершено | Всего | Состояние |
 |---|---:|---:|---|
-| Управление проектом | 8 | 9 | DOC-009 Developer Journal отсутствует |
+| Управление проектом | 9 | 9 | Полный baseline; DOC-009 ведётся как Living |
 | Архитектура | 12 | 12 | Полный audited baseline |
 | ADR | 9 | 9 | Полный принятый baseline |
 | Спецификации модулей | 4 | 15 | Template и MOD-001–003 готовы |
@@ -47,11 +47,11 @@ PLAN-001 — контрольный артефакт, а не один из 116 
 | AI | 0 | 7 | Архитектурный baseline есть, детальные документы отсутствуют |
 | Тестирование | 0 | 6 | Требования распределены по текущим документам |
 | Управление рисками | 0 | 4 | Реестр и процесс отсутствуют |
-| Стандарты проекта | 2 | 10 | STD-001 и STD-002 Current; остальные позиции Planned |
+| Стандарты проекта | 3 | 10 | STD-001, STD-002 и STD-004 Current; остальные позиции Planned |
 | Research | 0 | 6 | Канонические исследования не опубликованы |
 | Knowledge Base | 0 | 10 | Активных канонических документов нет |
 | IHK | 0 | 8 | Материалы не начаты |
-| **Итого** | **35** | **116** | **30,2 % поставляемых артефактов** |
+| **Итого** | **37** | **116** | **31,9 % поставляемых артефактов** |
 
 ## 5. Модель статусов
 
@@ -92,7 +92,7 @@ Foundation Pack превращает существующую архитекту
 | Gate | Состав | Результат | Состояние |
 |---|---|---|---|
 | F0 Master Control | PLAN-001 RU/DE, индекс и QA | Реальный реестр, порядок и критерии | Complete |
-| F1 Governance | DOC-009; STD-001–007 | Общий язык, правила документов и Git | In progress — STD-001/002 complete |
+| F1 Governance | DOC-009; STD-001–007 | Общий язык, правила документов и Git | In progress — DOC-009, STD-001/002/004 complete |
 | F2 Verification & Risk | TEST-001–003, TEST-006; RISK-001–003 | Единая доказательная модель и risk ownership | Planned |
 | F3 Persistence | DB-001–003, DB-006–008 | Логическая модель, миграции, восстановление | Planned |
 | F4 Events | EVT-001–006 | Имена, lifecycle, типы и каталог событий | Planned |
@@ -114,7 +114,7 @@ Foundation Pack превращает существующую архитекту
 
 ## 10. Рекомендуемая последовательность продолжения
 
-После публикации STD-001 и STD-002 следует закрывать не все 81 оставшихся документа подряд, а минимальный foundation критического пути. Это даст достаточную определённость до кода и не превратит проект в бесконечное написание документов.
+После публикации DOC-009 и STD-004 следует закрыть оставшиеся F1-позиции STD-003, STD-005, STD-006 и STD-007, а не все 79 оставшихся документов подряд. Это даст достаточную определённость до кода и не превратит проект в бесконечное написание документов.
 
 | Порядок | Пакет | Зачем сейчас | Выходной критерий |
 |---:|---|---|---|
@@ -138,7 +138,7 @@ Foundation Pack превращает существующую архитекту
 | DOC-006 | Project Scope | Complete | A | `docs/00_Project_Management/DOC-006_*_Audited_Complete.docx` |
 | DOC-007 | Milestones | Complete | A | `docs/00_Project_Management/DOC-007_*_Audited_Complete.docx` |
 | DOC-008 | Release Plan | Complete | A | `docs/00_Project_Management/DOC-008_*_Audited_Complete.docx` |
-| DOC-009 | Developer Journal | Planned | F | Living journal with decision, experiment, blocker and evidence templates |
+| DOC-009 | Developer Journal | Complete / Living | F | `DOC-009_*_v1_0_Current.docx`; decision, experiment, blocker and evidence records |
 
 ## 12. Этап 2 — Архитектура
 
@@ -267,7 +267,7 @@ Foundation Pack превращает существующую архитекту
 | STD-001 | Glossary | Complete | A | Canonical RU/DE/EN terms, definitions, owners and forbidden ambiguities |
 | STD-002 | Naming Convention | Complete | A | Normative names for modules, events, APIs, schemas, files and tests |
 | STD-003 | Coding Guidelines | Planned | F | Language rules, errors, ownership, concurrency and review |
-| STD-004 | Documentation Standard | Planned | F | Required sections, statuses, traceability and QA |
+| STD-004 | Documentation Standard | Complete | F | `docs/10_Project_Standards/STD-004_*_v1_0_Current.docx`; required sections, statuses, traceability and QA |
 | STD-005 | Git Workflow | Planned | F | Branch lifecycle, review, validation and integration |
 | STD-006 | Commit Convention | Planned | F | Commit types, scope, evidence and atomicity |
 | STD-007 | Branch Strategy | Planned | F | Protected branches, worktrees and release/hotfix rules |
@@ -373,7 +373,7 @@ PLAN-001 обновляется после публикации или supersede
 
 ## 30. Следующее утверждённое действие
 
-F1 Governance продолжается после завершения STD-001 и STD-002. Следующая последовательность: STD-004 Documentation Standard; DOC-009 Developer Journal; STD-003 Coding Guidelines; STD-005 Git Workflow; STD-006 Commit Convention; STD-007 Branch Strategy. STD-008–010 закрываются ближе к первому release baseline.
+F1 Governance продолжается после завершения DOC-009, STD-001, STD-002 и STD-004. Следующая последовательность: STD-003 Coding Guidelines; STD-005 Git Workflow; STD-006 Commit Convention; STD-007 Branch Strategy. STD-008–010 закрываются ближе к первому release baseline.
 
 MOD-004 не следует начинать раньше минимальных F1–F5, несмотря на готовность MOD-003 design baseline. Это не отмена разработки, а защита от повторного переписывания событий, API, persistence и тестовых контрактов.
 
@@ -381,7 +381,7 @@ MOD-004 не следует начинать раньше минимальных
 
 | Группа | Complete / Accepted | Planned | Всего |
 |---|---:|---:|---:|
-| Project Management | 8 | 1 | 9 |
+| Project Management | 9 | 0 | 9 |
 | Architecture | 12 | 0 | 12 |
 | ADR | 9 | 0 | 9 |
 | Module Specifications | 4 | 11 | 15 |
@@ -391,15 +391,15 @@ MOD-004 не следует начинать раньше минимальных
 | AI | 0 | 7 | 7 |
 | Testing | 0 | 6 | 6 |
 | Risk Management | 0 | 4 | 4 |
-| Project Standards | 2 | 8 | 10 |
+| Project Standards | 3 | 7 | 10 |
 | Research | 0 | 6 | 6 |
 | Knowledge Base | 0 | 10 | 10 |
 | IHK | 0 | 8 | 8 |
-| **Итого** | **35** | **81** | **116** |
+| **Итого** | **37** | **79** | **116** |
 
 ## Приложение B. Проверка арифметики и полноты
 
-Количество строк по этапам: `9 + 12 + 9 + 15 + 8 + 6 + 6 + 7 + 6 + 4 + 10 + 6 + 10 + 8 = 116`. Завершённые строки: `8 + 12 + 9 + 4 + 2 = 35`. Остаток: `116 − 35 = 81`. Доля выполнения: `35 / 116 = 30,2 %`.
+Количество строк по этапам: `9 + 12 + 9 + 15 + 8 + 6 + 6 + 7 + 6 + 4 + 10 + 6 + 10 + 8 = 116`. Завершённые строки: `9 + 12 + 9 + 4 + 3 = 37`. Остаток: `116 − 37 = 79`. Доля выполнения: `37 / 116 = 31,9 %`.
 
 PLAN-001 учитывается в каноническом индексе как control artifact, но не включается в эти 116 delivery items. QA-отчёты, coverage registers, audit records и archived snapshots также являются evidence/control artifacts и не меняют delivery denominator.
 
@@ -420,5 +420,6 @@ PLAN-001 учитывается в каноническом индексе ка�
 
 | Версия | Дата | Изменение |
 |---|---|---|
+| 2.2 | 2026-09-05 | DOC-009 Developer Journal и STD-004 Documentation Standard переведены в Complete / Current; прогресс обновлён до 37/116; в F1 остались STD-003 и STD-005–007. |
 | 2.1 | 2026-09-05 | STD-001 Glossary и STD-002 Naming Convention переведены в Complete; прогресс обновлён до 35/116; состав минимального F1 исправлен на DOC-009 и STD-001–007. |
 | 2.0 | 2026-09-05 | Создан полный двуязычный управляющий план; исправлены 28/92 на 33/116; добавлены ADR-008/009, MOD-002/003, статусная модель, Foundation Pack, 116-item registry, gates и acceptance rules. |

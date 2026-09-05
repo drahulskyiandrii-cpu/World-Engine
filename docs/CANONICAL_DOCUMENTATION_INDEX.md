@@ -27,9 +27,10 @@
 | DOC-006 | [RU v4.0 complete](00_Project_Management/DOC-006_Project_Scope_RU_v4_0_Full_Content_Audited_Complete.docx) | [DE v4.0 complete](00_Project_Management/DOC-006_Project_Scope_DE_v4_0_Full_Content_Audited_Complete.docx) | `99_Archive/04_Full_Documentation_Rebuild_2026-09-04/00_Project_Management/` | Current — full content, audited |
 | DOC-007 | [RU v2.0 complete](00_Project_Management/DOC-007_Project_Milestones_RU_v2_0_Full_Content_Audited_Complete.docx) | [DE v2.0 complete](00_Project_Management/DOC-007_Project_Milestones_DE_v2_0_Full_Content_Audited_Complete.docx) | `99_Archive/04_Full_Documentation_Rebuild_2026-09-04/00_Project_Management/` | Current — full content, audited |
 | DOC-008 | [RU v2.0 complete](00_Project_Management/DOC-008_Release_Plan_RU_v2_0_Full_Content_Audited_Complete.docx) | [DE v2.0 complete](00_Project_Management/DOC-008_Release_Plan_DE_v2_0_Full_Content_Audited_Complete.docx) | `99_Archive/04_Full_Documentation_Rebuild_2026-09-04/00_Project_Management/` | Current — full content, audited |
-| PLAN-001 | [RU v2.1 current](00_Project_Management/PLAN-001_World_Engine_Master_Documentation_Plan_RU_v2_1_Current.docx) | [DE v2.1 current](00_Project_Management/PLAN-001_World_Engine_Master_Documentation_Plan_DE_v2_1_Current.docx) | — | Current — master control baseline; F1 in progress; full-document QA passed |
+| DOC-009 | [RU v1.0 current](00_Project_Management/DOC-009_Developer_Journal_RU_v1_0_Current.docx) | [DE v1.0 current](00_Project_Management/DOC-009_Developer_Journal_DE_v1_0_Current.docx) | — | Current / Living — evidence-based developer journal; full-document QA passed |
+| PLAN-001 | [RU v2.2 current](00_Project_Management/PLAN-001_World_Engine_Master_Documentation_Plan_RU_v2_2_Current.docx) | [DE v2.2 current](00_Project_Management/PLAN-001_World_Engine_Master_Documentation_Plan_DE_v2_2_Current.docx) | — | Current — master control baseline; F1 in progress; full-document QA passed |
 
-PLAN-001 governs a 116-item delivery register and is intentionally excluded from that delivery denominator because it is a control artifact. Its evidence-backed baseline is 35 complete or accepted and 81 planned. Version 2.1 records STD-001 and STD-002 as Complete, closes F0 and defines the minimum F1 composition as DOC-009 plus STD-001–STD-007 without superseding DOC-004 or any other project-management document.
+PLAN-001 governs a 116-item delivery register and is intentionally excluded from that delivery denominator because it is a control artifact. Its evidence-backed baseline is 37 complete or accepted and 79 planned. Version 2.2 records DOC-009, STD-001, STD-002 and STD-004 as Complete/Current, keeps F1 at 4/8, closes F0 and defines the minimum F1 composition as DOC-009 plus STD-001–STD-007 without superseding DOC-004 or any other project-management document.
 
 ## Architecture documents
 
@@ -84,8 +85,9 @@ The MOD-003 v1.0 pair is a standalone pre-implementation specification with 60 n
 |---|---|---|---|---|
 | STD-001 | [RU v1.0 current](10_Project_Standards/STD-001_Glossary_RU_v1_0_Current.docx) | [DE v1.0 current](10_Project_Standards/STD-001_Glossary_DE_v1_0_Current.docx) | — | Current — normative glossary; full-document QA passed |
 | STD-002 | [RU v1.0 current](10_Project_Standards/STD-002_Naming_Convention_RU_v1_0_Current.docx) | [DE v1.0 current](10_Project_Standards/STD-002_Naming_Convention_DE_v1_0_Current.docx) | — | Current — normative naming baseline; full-document QA passed |
+| STD-004 | [RU v1.0 current](10_Project_Standards/STD-004_Documentation_Standard_RU_v1_0_Current.docx) | [DE v1.0 current](10_Project_Standards/STD-004_Documentation_Standard_DE_v1_0_Current.docx) | — | Current — normative documentation standard; full-document QA passed |
 
-STD-001 defines canonical RU/DE/English terminology, translation rules and forbidden ambiguities across governance, architecture, modules, events, persistence, save/restore, AI, testing and operations. STD-002 defines lexical rules for documentation, C++, contracts, events, configuration, data, observability, tests, builds and version-control artifacts while preserving already published MOD-002 public identifiers. Together they complete two of the eight minimum F1 deliverables; F1 remains In Progress.
+STD-001 defines canonical RU/DE/English terminology, translation rules and forbidden ambiguities across governance, architecture, modules, events, persistence, save/restore, AI, testing and operations. STD-002 defines lexical rules for documentation, C++, contracts, events, configuration, data, observability, tests, builds and version-control artifacts while preserving already published MOD-002 public identifiers. STD-004 makes full standalone content, RU/DE parity, separate document/implementation truth, traceability and evidence-based QA mandatory for every document family and MOD-001–MOD-014. Together with DOC-009, these artifacts complete four of the eight minimum F1 deliverables; F1 remains In Progress.
 
 ## Audit record and QA register
 
@@ -97,21 +99,23 @@ STD-001 defines canonical RU/DE/English terminology, translation rules and forbi
 
 | Group | Documents | Rendered pages |
 |---|---:|---:|
-| Project management | 16 | 120 |
+| Project management | 18 | 162 |
 | Architecture | 24 | 1068 |
 | ADR | 18 | 748 |
 | MOD-001 | 2 | 255 |
 | MOD-002 | 2 | 115 |
 | MOD-003 | 2 | 78 |
 | PLAN-001 master control | 2 | 62 |
-| Project standards | 4 | 101 |
+| Project standards | 6 | 143 |
 | Consolidated audit record | 1 | 170 |
-| **Total** | **71** | **2717** |
+| **Total** | **75** | **2801** |
 
 The previously published 59-document audited baseline remains unchanged. The two ADR-009 decision records remain current. The MOD-002 v2.0 pair renders to 115 pages (58 RU and 57 DE), replaces the 19-page v1.0 baseline pair in the active set, and passed full-page visual inspection plus accessibility audit with no high-, medium- or low-severity findings. The superseded presentation remains recoverable in the historical archive but is not part of the active module documentation.
 
 The MOD-003 v1.0 pair renders to 78 pages (39 RU and 39 DE) and passed full-page visual inspection plus accessibility audit with no high-, medium- or low-severity findings. Its complete documentation status is intentionally distinct from implementation status, which remains Not Started.
 
-The PLAN-001 v2.1 pair renders to 62 pages (31 RU and 31 DE). Both versions contain the complete 116-item registry, Foundation Gates F0–F6, the corrected F1 scope and identical structural metrics. Full-page visual inspection and accessibility audit passed with no high-, medium- or low-severity findings. The detailed evidence is recorded in [PLAN-001 full-document QA](00_Project_Management/PLAN-001_v2_1_Full_Document_QA.md).
+The PLAN-001 v2.2 pair renders to 62 pages (31 RU and 31 DE). Both versions contain the complete 116-item registry, Foundation Gates F0–F6, the corrected `37 / 116` state, the current F1 scope and identical structural metrics. Full-page visual inspection and accessibility audit passed with no high-, medium- or low-severity findings. The detailed evidence is recorded in [PLAN-001 full-document QA](00_Project_Management/PLAN-001_v2_2_Full_Document_QA.md).
 
 The STD-001 v1.0 pair renders to 53 pages (27 RU and 26 DE), and the STD-002 v1.0 pair renders to 48 pages (24 RU and 24 DE). All 101 standard pages passed full-page visual inspection. Both pairs have RU/DE structural parity and accessibility audit results of zero high-, medium- or low-severity findings; their evidence is recorded in the adjacent STD-001 and STD-002 QA reports.
+
+The DOC-009 v1.0 pair renders to 42 pages (21 RU and 21 DE), closes the project-management register at `9 / 9`, and establishes the evidence-based living developer journal. The STD-004 v1.0 pair renders to 42 pages (21 RU and 21 DE) and establishes the normative documentation and full-module-specification rules. All 84 new pages passed full-page visual inspection, structural parity checks and accessibility audits with zero high-, medium- or low-severity findings; detailed evidence is recorded in the adjacent DOC-009 and STD-004 QA reports.
