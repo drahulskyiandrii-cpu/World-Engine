@@ -1,4 +1,4 @@
-# PLAN-001 v2.0 — Full-document QA
+# PLAN-001 v2.1 — Full-document QA
 
 **Date:** 2026-09-05  
 **Branch:** `docs/pre-code-foundation-plan`  
@@ -6,8 +6,8 @@
 
 ## Published artifacts
 
-- `PLAN-001_World_Engine_Master_Documentation_Plan_RU_v2_0_Current.docx`
-- `PLAN-001_World_Engine_Master_Documentation_Plan_DE_v2_0_Current.docx`
+- `PLAN-001_World_Engine_Master_Documentation_Plan_RU_v2_1_Current.docx`
+- `PLAN-001_World_Engine_Master_Documentation_Plan_DE_v2_1_Current.docx`
 - Matching RU and DE editable Markdown sources are retained next to the Word pair.
 
 ## Content verification
@@ -17,16 +17,16 @@
 | Rendered pages | 31 | 31 | PASS |
 | Body paragraphs | 165 | 165 | PASS |
 | Tables | 30 | 30 | PASS |
-| Table rows | 263 | 263 | PASS |
+| Table rows | 264 | 264 | PASS |
 | Semantic headings | 37 | 37 | PASS |
 | Tables with repeated semantic header row | 30 / 30 | 30 / 30 | PASS |
 | Required unique IDs | 115 / 115 | 115 / 115 | PASS |
 | Module Specification Template entry | Present | Present | PASS |
 | Delivery denominator | 116 | 116 | PASS |
-| Completed / accepted count | 33 | 33 | PASS |
-| Planned count | 83 | 83 | PASS |
+| Completed / accepted count | 35 | 35 | PASS |
+| Planned count | 81 | 81 | PASS |
 
-The 115 unique IDs plus the Module Specification Template equal the 116 delivery artifacts governed by the plan. `PLAN-001` is a control artifact and is intentionally excluded from that denominator.
+The 115 unique IDs plus the Module Specification Template equal the 116 delivery artifacts governed by the plan. `PLAN-001` is a control artifact and is intentionally excluded from that denominator. STD-001 and STD-002 are now Complete; the minimum F1 gate remains In Progress until DOC-009 and STD-003–STD-007 are complete.
 
 ## Structural and accessibility verification
 
@@ -49,11 +49,11 @@ The bundled LibreOffice renderer was invoked but could not run because `soffice.
 
 | File | SHA-256 |
 |---|---|
-| RU DOCX | `ED5594A09677B2C91BB9B597210286D18E3F6BA65B740AB82259E76B4D30CFE1` |
-| DE DOCX | `0C94B954C6B95E95840382209C6EA68D06F60229791D30DC0E12579E57A009DE` |
+| RU DOCX | `F5C11F48FD8750AA37B8CAF8544B9BDC4F01A46A385B622E8ECE93F53E5096F7` |
+| DE DOCX | `748BE7E9DAC76FD2F5A2DBD7344849642E5A966CD6D353D69A57670674CC8838` |
 
 ## Publication decision
 
-PLAN-001 v2.0 is accepted as the current master documentation-control baseline. It corrects the former `28 / 92` statement to the evidence-backed `33 / 116`, records all delivery artifacts, distinguishes document status from implementation status, and establishes Foundation Gates F0–F6.
+PLAN-001 v2.1 is accepted as the current master documentation-control baseline. It records the evidence-backed `35 / 116`, preserves the full delivery registry, marks F0 Complete and establishes the corrected minimum F1 composition as DOC-009 plus STD-001–STD-007. STD-008–STD-010 remain required later standards but are not falsely presented as part of the minimum F1 gate.
 
-Gate F0 is complete with publication of this pair, QA record and canonical-index update. The next planned package is F1 Governance; this decision does not authorize new production implementation or inclusion of Skyrim VR.
+The next planned package is STD-004 Documentation Standard and DOC-009 Developer Journal. This decision does not authorize new production implementation or inclusion of Skyrim VR.

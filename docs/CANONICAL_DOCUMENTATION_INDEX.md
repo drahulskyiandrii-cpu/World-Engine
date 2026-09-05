@@ -27,9 +27,9 @@
 | DOC-006 | [RU v4.0 complete](00_Project_Management/DOC-006_Project_Scope_RU_v4_0_Full_Content_Audited_Complete.docx) | [DE v4.0 complete](00_Project_Management/DOC-006_Project_Scope_DE_v4_0_Full_Content_Audited_Complete.docx) | `99_Archive/04_Full_Documentation_Rebuild_2026-09-04/00_Project_Management/` | Current — full content, audited |
 | DOC-007 | [RU v2.0 complete](00_Project_Management/DOC-007_Project_Milestones_RU_v2_0_Full_Content_Audited_Complete.docx) | [DE v2.0 complete](00_Project_Management/DOC-007_Project_Milestones_DE_v2_0_Full_Content_Audited_Complete.docx) | `99_Archive/04_Full_Documentation_Rebuild_2026-09-04/00_Project_Management/` | Current — full content, audited |
 | DOC-008 | [RU v2.0 complete](00_Project_Management/DOC-008_Release_Plan_RU_v2_0_Full_Content_Audited_Complete.docx) | [DE v2.0 complete](00_Project_Management/DOC-008_Release_Plan_DE_v2_0_Full_Content_Audited_Complete.docx) | `99_Archive/04_Full_Documentation_Rebuild_2026-09-04/00_Project_Management/` | Current — full content, audited |
-| PLAN-001 | [RU v2.0 current](00_Project_Management/PLAN-001_World_Engine_Master_Documentation_Plan_RU_v2_0_Current.docx) | [DE v2.0 current](00_Project_Management/PLAN-001_World_Engine_Master_Documentation_Plan_DE_v2_0_Current.docx) | — | Current — master control baseline; full-document QA passed |
+| PLAN-001 | [RU v2.1 current](00_Project_Management/PLAN-001_World_Engine_Master_Documentation_Plan_RU_v2_1_Current.docx) | [DE v2.1 current](00_Project_Management/PLAN-001_World_Engine_Master_Documentation_Plan_DE_v2_1_Current.docx) | — | Current — master control baseline; F1 in progress; full-document QA passed |
 
-PLAN-001 governs a 116-item delivery register and is intentionally excluded from that delivery denominator because it is a control artifact. Its evidence-backed baseline is 33 complete or accepted and 83 planned. It replaces the former informal `28 / 92` progress statement without superseding DOC-004 or any other project-management document.
+PLAN-001 governs a 116-item delivery register and is intentionally excluded from that delivery denominator because it is a control artifact. Its evidence-backed baseline is 35 complete or accepted and 81 planned. Version 2.1 records STD-001 and STD-002 as Complete, closes F0 and defines the minimum F1 composition as DOC-009 plus STD-001–STD-007 without superseding DOC-004 or any other project-management document.
 
 ## Architecture documents
 
@@ -78,6 +78,15 @@ The former short M2.1 Word baseline and architecture presentation are retained o
 
 The MOD-003 v1.0 pair is a standalone pre-implementation specification with 60 numbered sections and appendices A–L. It defines Memory Engine ownership, schemas, persistence and save boundaries, AI/Dialogue integration, tests, gates and operations without presenting planned code as implemented.
 
+## Project standards
+
+| ID | Canonical RU | Canonical DE | Superseded snapshot | Status |
+|---|---|---|---|---|
+| STD-001 | [RU v1.0 current](10_Project_Standards/STD-001_Glossary_RU_v1_0_Current.docx) | [DE v1.0 current](10_Project_Standards/STD-001_Glossary_DE_v1_0_Current.docx) | — | Current — normative glossary; full-document QA passed |
+| STD-002 | [RU v1.0 current](10_Project_Standards/STD-002_Naming_Convention_RU_v1_0_Current.docx) | [DE v1.0 current](10_Project_Standards/STD-002_Naming_Convention_DE_v1_0_Current.docx) | — | Current — normative naming baseline; full-document QA passed |
+
+STD-001 defines canonical RU/DE/English terminology, translation rules and forbidden ambiguities across governance, architecture, modules, events, persistence, save/restore, AI, testing and operations. STD-002 defines lexical rules for documentation, C++, contracts, events, configuration, data, observability, tests, builds and version-control artifacts while preserving already published MOD-002 public identifiers. Together they complete two of the eight minimum F1 deliverables; F1 remains In Progress.
+
 ## Audit record and QA register
 
 - [Full architecture audit record](01_Architecture/AUDIT-000_World_Engine_Architecture_Audit_Record_v1_0_Complete.docx) — 170 pages containing the full audit evidence through AUDIT-029.
@@ -95,11 +104,14 @@ The MOD-003 v1.0 pair is a standalone pre-implementation specification with 60 n
 | MOD-002 | 2 | 115 |
 | MOD-003 | 2 | 78 |
 | PLAN-001 master control | 2 | 62 |
+| Project standards | 4 | 101 |
 | Consolidated audit record | 1 | 170 |
-| **Total** | **67** | **2616** |
+| **Total** | **71** | **2717** |
 
 The previously published 59-document audited baseline remains unchanged. The two ADR-009 decision records remain current. The MOD-002 v2.0 pair renders to 115 pages (58 RU and 57 DE), replaces the 19-page v1.0 baseline pair in the active set, and passed full-page visual inspection plus accessibility audit with no high-, medium- or low-severity findings. The superseded presentation remains recoverable in the historical archive but is not part of the active module documentation.
 
 The MOD-003 v1.0 pair renders to 78 pages (39 RU and 39 DE) and passed full-page visual inspection plus accessibility audit with no high-, medium- or low-severity findings. Its complete documentation status is intentionally distinct from implementation status, which remains Not Started.
 
-The PLAN-001 v2.0 pair renders to 62 pages (31 RU and 31 DE). Both versions contain the complete 116-item registry, Foundation Gates F0–F6 and identical structural metrics. Full-page visual inspection and accessibility audit passed with no high-, medium- or low-severity findings. The detailed evidence is recorded in [PLAN-001 full-document QA](00_Project_Management/PLAN-001_v2_0_Full_Document_QA.md).
+The PLAN-001 v2.1 pair renders to 62 pages (31 RU and 31 DE). Both versions contain the complete 116-item registry, Foundation Gates F0–F6, the corrected F1 scope and identical structural metrics. Full-page visual inspection and accessibility audit passed with no high-, medium- or low-severity findings. The detailed evidence is recorded in [PLAN-001 full-document QA](00_Project_Management/PLAN-001_v2_1_Full_Document_QA.md).
+
+The STD-001 v1.0 pair renders to 53 pages (27 RU and 26 DE), and the STD-002 v1.0 pair renders to 48 pages (24 RU and 24 DE). All 101 standard pages passed full-page visual inspection. Both pairs have RU/DE structural parity and accessibility audit results of zero high-, medium- or low-severity findings; their evidence is recorded in the adjacent STD-001 and STD-002 QA reports.

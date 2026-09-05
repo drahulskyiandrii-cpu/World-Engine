@@ -1,6 +1,6 @@
 # PLAN-001 — World Engine Master Documentation Plan
 
-Version 2.0 · Deutsch · 2026-09-05 · Aktuelles Steuerungsdokument
+Version 2.1 · Deutsch · 2026-09-05 · Aktuelles Steuerungsdokument
 
 ## 1. Zweck des Dokuments
 
@@ -18,14 +18,14 @@ Das Verzeichnis `sources/`, historische Archive und superseded snapshots dienen 
 
 ## 3. Korrektur des bisherigen Master Plans
 
-Die frühere Tabelle nannte einen Gesamtstand von `28 / 92`, obwohl sie 114 Positionen auflistete. Nach Aufnahme von ADR-008 und ADR-009 umfasst das tatsächliche Programm 116 Lieferartefakte. Zum Stand dieser Version sind 33 von 116 bestätigt.
+Die frühere Tabelle nannte einen Gesamtstand von `28 / 92`, obwohl sie 114 Positionen auflistete. Nach Aufnahme von ADR-008 und ADR-009 umfasst das tatsächliche Programm 116 Lieferartefakte. Nach Veröffentlichung von STD-001 und STD-002 sind 35 von 116 bestätigt.
 
 Zwei inhaltliche Verzerrungen werden ebenfalls korrigiert. `Future Ideas` fehlt im aktiven kanonischen Satz und kann daher nicht Complete sein. Die Existenz einer kurzen `README.md` im Repository-Root schließt den vollständigen README-Standard aus Phase 11 nicht ab. Ein Dokument-Checkbox bedeutet niemals automatisch, dass das zugehörige Softwaremodul implementiert ist.
 
 | Kennzahl | Früherer Wert | Verifizierter Wert | Begründung |
 |---|---:|---:|---|
 | Lieferartefakte gesamt | 92 | 116 | Neuzählung aller Einträge der Phasen 1–14 einschließlich ADR-008 und ADR-009 |
-| Abgeschlossen | 28 | 33 | Aktiver kanonischer Index und verifizierte Dateien |
+| Abgeschlossen | 28 | 35 | Aktiver kanonischer Index und verifizierte Dateien |
 | Architecture Decision Records | 7 / 7 | 9 / 9 | ADR-008 und ADR-009 sind angenommen und veröffentlicht |
 | Modulspezifikationen | 1 / 15 | 4 / 15 | Template, MOD-001, MOD-002 und MOD-003 |
 | Future Ideas | Complete | Planned | Kein aktives kanonisches Dokument vorhanden |
@@ -47,11 +47,11 @@ Die Dokumentationsbasis des Projekts ist umfangreich, aber noch kein vollständi
 | AI | 0 | 7 | Architektur-baseline vorhanden, Detaildokumente fehlen |
 | Testing | 0 | 6 | Anforderungen sind auf bestehende Dokumente verteilt |
 | Risikomanagement | 0 | 4 | Register und Verfahren fehlen |
-| Projektstandards | 0 | 10 | Kurze Root-README zählt nicht als vollständiger Standard |
+| Projektstandards | 2 | 10 | STD-001 und STD-002 Current; übrige Positionen Planned |
 | Research | 0 | 6 | Keine kanonischen Studien veröffentlicht |
 | Knowledge Base | 0 | 10 | Keine aktiven kanonischen Dokumente |
 | IHK | 0 | 8 | Materialien nicht begonnen |
-| **Gesamt** | **33** | **116** | **28,4 % der Lieferartefakte** |
+| **Gesamt** | **35** | **116** | **30,2 % der Lieferartefakte** |
 
 ## 5. Statusmodell
 
@@ -91,8 +91,8 @@ Das Foundation Pack verwandelt die bestehende Architektur in ausführbare Vertr�
 
 | Gate | Umfang | Ergebnis | Zustand |
 |---|---|---|---|
-| F0 Master Control | PLAN-001 RU/DE, Index und QA | Reales Register, Reihenfolge und Kriterien | Wird mit dieser Version abgeschlossen |
-| F1 Governance | DOC-009; STD-001–008 | Gemeinsame Sprache, Dokument- und Git-Regeln | Planned |
+| F0 Master Control | PLAN-001 RU/DE, Index und QA | Reales Register, Reihenfolge und Kriterien | Complete |
+| F1 Governance | DOC-009; STD-001–007 | Gemeinsame Sprache, Dokument- und Git-Regeln | In progress — STD-001/002 complete |
 | F2 Verification & Risk | TEST-001–003, TEST-006; RISK-001–003 | Einheitliches Nachweismodell und Risk Ownership | Planned |
 | F3 Persistence | DB-001–003, DB-006–008 | Logisches Modell, Migrationen und Wiederherstellung | Planned |
 | F4 Events | EVT-001–006 | Benennung, Lifecycle, Typen und Event Catalog | Planned |
@@ -114,11 +114,11 @@ Der Implementierungsstart richtet sich nicht nach Seitenzahl, sondern nach gesch
 
 ## 10. Empfohlene Fortsetzungsreihenfolge
 
-Nach Veröffentlichung von PLAN-001 sollen nicht alle 83 verbleibenden Dokumente nacheinander geschrieben werden. Stattdessen wird das minimale Foundation des kritischen Pfads geschlossen. So entsteht ausreichende Sicherheit vor dem Code, ohne das Projekt in endlose Dokumentproduktion zu verwandeln.
+Nach Veröffentlichung von STD-001 und STD-002 sollen nicht alle 81 verbleibenden Dokumente nacheinander geschrieben werden. Stattdessen wird das minimale Foundation des kritischen Pfads geschlossen. So entsteht ausreichende Sicherheit vor dem Code, ohne das Projekt in endlose Dokumentproduktion zu verwandeln.
 
 | Reihenfolge | Paket | Grund für den jetzigen Zeitpunkt | Abschlusskriterium |
 |---:|---|---|---|
-| 1 | F1 Governance | Beseitigt Terminologie- und Prozessabweichungen | DOC-009 und STD-001–008 Current |
+| 1 | F1 Governance | Beseitigt Terminologie- und Prozessabweichungen | DOC-009 und STD-001–007 Current |
 | 2 | F2 Verification & Risk | Macht Readiness messbar und Risiken entscheidbar | TEST-001–003, TEST-006 und RISK-001–003 Current |
 | 3 | F3 Persistence | Benötigt von Core, Memory, Save und fast allen Simulation Modules | DB logical baseline und migration/recovery policy Current |
 | 4 | F4 Events | Events sind die zentrale Sprache zwischen Modulen | Vollständiger Event Contract und Katalog v1 Current |
@@ -264,8 +264,8 @@ Alle zwölf Dokumente sind abgeschlossen und bilden die aktive Baseline. Änderu
 
 | ID | Artefakt | Status | Klasse | Abschlussbedingung |
 |---|---|---|---|---|
-| STD-001 | Glossary | Planned | F | Kanonische Begriffe RU/DE/EN und verbotene Mehrdeutigkeiten |
-| STD-002 | Naming Convention | Planned | F | Namen für Modules, Events, APIs, Schemas, Files und Tests |
+| STD-001 | Glossary | Complete | A | Kanonische RU/DE/EN-Begriffe, Definitionen, Owners und verbotene Mehrdeutigkeiten |
+| STD-002 | Naming Convention | Complete | A | Normative Namen für Modules, Events, APIs, Schemas, Files und Tests |
 | STD-003 | Coding Guidelines | Planned | F | Sprachregeln, Errors, Ownership, Concurrency und Review |
 | STD-004 | Documentation Standard | Planned | F | Pflichtabschnitte, Status, Traceability und QA |
 | STD-005 | Git Workflow | Planned | F | Branch Lifecycle, Review, Validation und Integration |
@@ -373,7 +373,7 @@ Empfohlener Rhythmus: Developer Journal nach jedem wesentlichen Arbeitsdurchlauf
 
 ## 30. Nächste angenommene Aktion
 
-Nach Abschluss der QA dieser Version ist F1 Governance das nächste Arbeitspaket. Empfohlene interne Reihenfolge: STD-001 Glossary; STD-002 Naming Convention; STD-004 Documentation Standard; DOC-009 Developer Journal; STD-003 Coding Guidelines; STD-005 Git Workflow; STD-006 Commit Convention; STD-007 Branch Strategy. STD-008–010 können näher an der ersten Release Baseline abgeschlossen werden.
+F1 Governance wird nach Abschluss von STD-001 und STD-002 fortgesetzt. Die nächste Reihenfolge lautet: STD-004 Documentation Standard; DOC-009 Developer Journal; STD-003 Coding Guidelines; STD-005 Git Workflow; STD-006 Commit Convention; STD-007 Branch Strategy. STD-008–010 werden näher an der ersten Release Baseline abgeschlossen.
 
 MOD-004 soll trotz fertiger MOD-003 Design Baseline nicht vor dem Mindestsatz F1–F5 beginnen. Dies stoppt die Entwicklung nicht, sondern verhindert erneutes Umschreiben von Event-, API-, Persistence- und Testverträgen.
 
@@ -391,15 +391,15 @@ MOD-004 soll trotz fertiger MOD-003 Design Baseline nicht vor dem Mindestsatz F1
 | AI | 0 | 7 | 7 |
 | Testing | 0 | 6 | 6 |
 | Risk Management | 0 | 4 | 4 |
-| Project Standards | 0 | 10 | 10 |
+| Project Standards | 2 | 8 | 10 |
 | Research | 0 | 6 | 6 |
 | Knowledge Base | 0 | 10 | 10 |
 | IHK | 0 | 8 | 8 |
-| **Gesamt** | **33** | **83** | **116** |
+| **Gesamt** | **35** | **81** | **116** |
 
 ## Anhang B. Prüfung von Arithmetik und Vollständigkeit
 
-Anzahl der Einträge nach Phasen: `9 + 12 + 9 + 15 + 8 + 6 + 6 + 7 + 6 + 4 + 10 + 6 + 10 + 8 = 116`. Abgeschlossene Einträge: `8 + 12 + 9 + 4 = 33`. Rest: `116 − 33 = 83`. Fortschrittsanteil: `33 / 116 = 28,4 %`.
+Anzahl der Einträge nach Phasen: `9 + 12 + 9 + 15 + 8 + 6 + 6 + 7 + 6 + 4 + 10 + 6 + 10 + 8 = 116`. Abgeschlossene Einträge: `8 + 12 + 9 + 4 + 2 = 35`. Rest: `116 − 35 = 81`. Fortschrittsanteil: `35 / 116 = 30,2 %`.
 
 PLAN-001 wird als Control Artifact im kanonischen Index geführt, gehört jedoch nicht zu den 116 Delivery Items. QA-Berichte, Coverage Registers, Audit Records und Archived Snapshots verändern den Delivery Denominator ebenfalls nicht.
 
@@ -420,5 +420,5 @@ PLAN-001 wird als Control Artifact im kanonischen Index geführt, gehört jedoch
 
 | Version | Datum | Änderung |
 |---|---|---|
+| 2.1 | 2026-09-05 | STD-001 Glossary und STD-002 Naming Convention auf Complete gesetzt; Fortschritt auf 35/116 aktualisiert; minimaler F1-Umfang auf DOC-009 und STD-001–007 korrigiert. |
 | 2.0 | 2026-09-05 | Vollständiger zweisprachiger Steuerungsplan erstellt; 28/92 zu 33/116 korrigiert; ADR-008/009 und MOD-002/003 aufgenommen; Statusmodell, Foundation Pack, 116-item registry, Gates und Acceptance Rules ergänzt. |
-
